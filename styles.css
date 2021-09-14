@@ -27,6 +27,19 @@ p {
   margin: 2% 0;
 }
 
+.idea-card {
+  border: 2px solid #353567;
+  height: 190px;
+}
+
+.idea-card p {
+  padding: 0px 10px;
+}
+
+.idea-card img {
+  height: 30px;
+}
+
 .idea-input-form {
   background-color: #A9AAD2;
   height: 35vh;
@@ -43,6 +56,21 @@ p {
 .card-grid-section {
   background-color: #EAEAF4;
   height: 65vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.card-header {
+  background-color: #1F1F3D;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer {
+  color: #E9E9F3;
+  background-color: #5356A4;
 }
 
 .filter-section {
