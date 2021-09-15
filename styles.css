@@ -1,11 +1,11 @@
 aside {
   color: #E9E9F3;
   width: 25%;
-  height: 100vh;
+  height: auto;
   font-weight: bold;
   background-color: #1F1F3D;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 body {
@@ -17,6 +17,24 @@ body {
 
 button {
   font: inherit;
+  font-size: 20px;
+  height: 60px;
+  background-color: #1F1F3D;
+  color: white;
+  border: 2px solid #5356A4;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  cursor:pointer;
+}
+
+
+
+.aside{
+  margin: 30px;
+  background-color: #5356A4;
+  border: 2px solid #353567;
+  color: white;
 }
 
 main {
@@ -24,17 +42,54 @@ main {
 }
 
 p {
-  margin: 2% 0;
+  margin-bottom: 5px;
+  margin-top: 20px;
 }
+
+input {
+  height: 50px;
+  border: 2.5px solid #5356A4;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 30px;
+}
+
+.large{
+  height: 90px;
+}
+
+h1, h3 {
+  padding: 10px;
+  margin: 10px;
+}
+
+
+hr{
+  height: 1.5px;
+  border-color: #353567;
+  background-color: #353567;
+}
+
+/* textarea{
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #5356A4;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize:vertical;
+} */
 
 .idea-input-form {
   background-color: #A9AAD2;
-  height: 35vh;
-  margin: 2% 15%;
+  height: 60vh;
+  margin: 2% 25%;
   font-weight: bold;
   display: flex;
   flex-direction: column;
 }
+
 
 .idea-input-form p {
   font-size: 14px;
