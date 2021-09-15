@@ -1,8 +1,8 @@
 class Idea {
-  constructor(){
+  constructor(title, body){
     this.id = 0;
-    this.title = "";
-    this.body = "";
+    this.title = title;
+    this.body = body;
     this.star = false;
   }
   saveToStorage(){
