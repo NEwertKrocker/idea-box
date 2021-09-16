@@ -21,12 +21,33 @@ button {
   height: 60px;
   background-color: gray;
   color: white;
-  border: 2px solid black;
+  border: 3px solid #5a5a5a;
   border-radius: 4px;
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+.button-ready {
+  background-color: #1F1F3D;
+  border: 2px solid #5356A4;
   cursor:pointer;
 }
+
+.aside{
+  margin: 30px;
+  background-color: #5356A4;
+  border: 2px solid #353567;
+  color: white;
+}
+
+main {
+  width: 75%;
+}
+
+/* p {
+  margin-bottom: 5px;
+  margin-top: 20px;
+} */
 
 input {
   font-size: 30px;

@@ -11,7 +11,9 @@ var cardGrid = document.querySelector('#card-grid');
 
 //EVENT LISTENERS
 saveButton.addEventListener('click', saveNewIdea);
-ideaTitle.addEventListener('onkeyup', readySaveButton);
+ideaBodyText.addEventListener('keyup', readySaveButton);
+ideaTitle.addEventListener('keyup', readySaveButton);
+
 
 //EVENT HANDLERS & FUNCTIONS
 function saveNewIdea() {
@@ -42,5 +44,9 @@ function displayGrid() {
 };
 
 function readySaveButton() {
-  saveButton.classList.add('.button-ready')
+  console.log("I'm in the readySaveButton func");
+  if(ideaTitle.value !== '' && ideaBodyText.value.length > 0){
+    console.log("I'm in the readySaveButton if statement");
+    saveButton.classList.add('button-ready');
+  }
 }
