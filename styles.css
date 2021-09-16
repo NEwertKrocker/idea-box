@@ -19,13 +19,18 @@ button {
   font: inherit;
   font-size: 20px;
   height: 60px;
-  background-color: #1F1F3D;
+  background-color: gray;
   color: white;
-  border: 2px solid #5356A4;
+  border: 2px solid black;
   border-radius: 4px;
   margin-top: 25px;
   margin-bottom: 25px;
   cursor:pointer;
+}
+
+.button-ready {
+  background-color: #1F1F3D;
+  border: 2px solid #5356A4;
 }
 
 .aside{
