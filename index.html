@@ -20,10 +20,11 @@
     <main>
       <section>
         <div class="idea-input-form">
-          <p> Title </p>
+          <h3 class='input-label'> Title </h3>
           <input type="text">
-          <p> Body </p>
-          <input type="text" class='input large'> </input>
+          <h3 class="input-label"> Body </h3>
+          <!-- <input type="text" class='input large'> </input> -->
+          <textarea id="large-input" name="large-input" rows="5" cols="33"> </textarea>
           <button> Save </button>
           <input type="text" placeholder="Search ideas" class='input'> </input>
         </div>
@@ -34,14 +35,15 @@
             <img src="./assets/star.svg" alt="Not favorited">
             <img src="./assets/delete.svg" alt="Delete">
           </header>
-          <div>
-            <p>Idea title</p>
-            <p>Idea body. Don't ever play yourself. Every chance I get, I water the plants, Lion! Cloth talk.</p>
+          <div class='idea-text'>
+            <h1>Idea title</h1>
+            <h3>Idea body. Don't ever play yourself. Every chance I get, I water the plants, Lion! Cloth talk.</h3>
           </div>
-          <footer class="card-footer">
-            <img src="./assets/comment.svg" alt="Comment">Comment
+          <footer class>
+            <img src="./assets/comment.svg" alt="Comment"> Comment </img>
           </footer>
         </article>
+        
         <article class="idea-card">
           <header class="card-header">
             <img src="./assets/star.svg" alt="Not favorited">
