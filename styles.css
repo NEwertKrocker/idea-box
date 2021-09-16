@@ -28,27 +28,6 @@ button {
   cursor:pointer;
 }
 
-.button-ready {
-  background-color: #1F1F3D;
-  border: 2px solid #5356A4;
-}
-
-.aside{
-  margin: 30px;
-  background-color: #5356A4;
-  border: 2px solid #353567;
-  color: white;
-}
-
-main {
-  width: 75%;
-}
-
-/* p {
-  margin-bottom: 5px;
-  margin-top: 20px;
-} */
-
 input {
   font-size: 30px;
   height: 50px;
@@ -58,20 +37,13 @@ input {
   padding: 5px;
 }
 
-.large{
-  height: 90px;
+main {
+  width: 75%;
 }
 
 h1, h3 {
   padding: 10px;
   margin: 10px;
-}
-
-.input-label{
-  padding: 0px;
-  margin: 0px;
-  margin-top: 15px;
-  margin-bottom: 5px;
 }
 
 hr{
@@ -93,6 +65,56 @@ textarea{
   resize:none;
 }
 
+.button-ready {
+  background-color: #1F1F3D;
+  border: 2px solid #5356A4;
+}
+
+.search-bar {
+  display: flex;
+  border: 3px solid #5356A4;
+  border-radius: 4px;
+}
+
+.search-bar img{
+  background-color: #5356A4;
+  height: 40px;
+  padding: 10px;
+  border-right: 0;
+}
+
+.search-bar input {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+}
+
+::placeholder {
+  color: #BFBFDD;
+}
+
+.aside{
+  margin: 30px;
+  background-color: #5356A4;
+  border: 2px solid #353567;
+  color: white;
+}
+
+/* p {
+  margin-bottom: 5px;
+  margin-top: 20px;
+} */
+
+.large{
+  height: 90px;
+}
+
+.input-label{
+  padding: 0px;
+  margin: 0px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
 
 .idea-input-form {
   background-color: #A9AAD2;
@@ -161,7 +183,6 @@ footer {
 footer p {
   margin: 5px;
 }
-
 
 .filter-section {
   color: #BFBFDD;
