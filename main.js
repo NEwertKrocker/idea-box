@@ -40,13 +40,18 @@ function displayGrid() {
   </article>`;
   allIdeas += ideaCardHTML;
   cardGrid.innerHTML = allIdeas;
-}
+  }
 };
 
 function readySaveButton() {
   console.log("I'm in the readySaveButton func");
-  if(ideaTitle.value !== '' && ideaBodyText.value.length > 0){
+  if(ideaTitle.value && ideaBodyText.value){
     console.log("I'm in the readySaveButton if statement");
     saveButton.classList.add('button-ready');
+  // if(!ideaTitle.value || !ideaBodyText.value){
+  //   saveButton.disabled = true;
+  // } else {
+  //   saveButton.disabled = false;
+  // }
   }
 }
