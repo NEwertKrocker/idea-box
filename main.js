@@ -28,27 +28,29 @@ function clearFields(){
   ideaTitle.value = "";
   ideaBodyText.value = "";
   saveButton.classList.remove('button-ready');
+  saveButton.disabled = true;
 }
 
 function displayGrid() {
   var allIdeas = "";
   for (var i = 0; i < ideas.length; i++) {
-  var ideaCardHTML = `<article class="idea-card" id="${ideas[i].id}">
-    <header class="card-header">
-      <img src="./assets/star.svg" alt="Not favorited" id="star-icon">
-      <img src="./assets/delete.svg" alt="Delete" id="delete-icon">
-    </header>
-    <div>
-      <p>${ideas[i].title}</p>
-      <p>${ideas[i].body}</p>
-    </div>
-    <footer class="card-footer">
-      <img src="./assets/comment.svg" alt="Comment">Comment
-    </footer>
-  </article>`;
-  allIdeas += ideaCardHTML;
-  cardGrid.innerHTML = allIdeas;
-}
+    var ideaCardHTML = `
+    <article class="idea-card" id="${ideas[i].id}">
+      <header class="card-header">
+        <img src="./assets/star.svg" alt="Not favorited" id="star-icon">
+        <img src="./assets/delete.svg" alt="Delete" id="delete-icon">
+      </header>
+      <div>
+        <p>${ideas[i].title}</p>
+        <p>${ideas[i].body}</p>
+      </div>
+      <footer class="card-footer">
+        <img src="./assets/comment.svg" alt="Comment">Comment
+      </footer>
+    </article>`;
+    allIdeas += ideaCardHTML;
+    cardGrid.innerHTML = allIdeas;
+  }
 };
 
 function readySaveButton() {
@@ -56,11 +58,11 @@ function readySaveButton() {
   if(ideaTitle.value && ideaBodyText.value){
     // console.log("I'm in the readySaveButton if statement");
     saveButton.classList.add('button-ready');
+    saveButton.disabled = false;
   }
 }
 
 function getIdeaID(event){
-  console.log(event.target.id);
   if(event.target.id === "delete-icon"){
     deleteIdea()
   }
