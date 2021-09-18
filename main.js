@@ -9,6 +9,7 @@ var ideaBodyText = document.querySelector('#idea-body-text');
 var cardGrid = document.querySelector('#card-grid');
 var favIcon = document.querySelector('#star-icon');
 var filterButton = document.querySelector('#filter-button');
+var searchBar = document.querySelector('#searchField');
 
 
 //EVENT LISTENERS
@@ -17,6 +18,7 @@ ideaBodyText.addEventListener('keyup', readySaveButton);
 ideaTitle.addEventListener('keyup', readySaveButton);
 cardGrid.addEventListener('click', getIdeaID);
 filterButton.addEventListener('click', toggleFilter);
+searchBar.addEventListener('keyup', searchIdeas);
 
 
 //EVENT HANDLERS & FUNCTIONS
@@ -143,5 +145,17 @@ function toggleFilter(){
     filterButton.innerText = "Show All Ideas"
   } else {
     filterButton.innerText = "Show Starred Ideas";
+  }
+}
+
+function searchIdeas(){
+  var search = searchBar.value;
+  var ideaCards = document.querySelectorAll(".idea-card");
+  for (var i = 0; i < ideaCards.length; i++){
+    if (!ideaCards[i].innerText.includes(searchBar.value)){
+      ideaCards[i].classList.add("search-hidden");
+    } else if (searchBar.value === ""){
+      ideaCards[i].classList.remove("search-hidden");
+    }
   }
 }
