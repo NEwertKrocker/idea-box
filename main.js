@@ -139,7 +139,9 @@ function toggleFilter(){
       ideaCards[i].classList.toggle("hidden");
     }
   }
-
-
-
+  if (filterButton.innerText === "Show Starred Ideas"){
+    filterButton.innerText = "Show All Ideas"
+  } else {
+    filterButton.innerText = "Show Starred Ideas";
+  }
 }
