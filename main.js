@@ -41,7 +41,7 @@ function displayGrid() {
     } else {
       favStatus = './assets/star.svg';
     }
-    
+
     var ideaCardHTML = `
     <article class="idea-card" id="${ideas[i].id}">
       <header class="card-header">
@@ -114,4 +114,10 @@ function deleteIdea(){
     }
   }
   displayGrid();
+}
+
+window.addEventListener('load', loadedTracker);
+
+function loadedTracker(){
+  alert("The page has loaded.")
 }
