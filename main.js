@@ -7,6 +7,7 @@ var saveButton = document.querySelector('#save-button');
 var ideaTitle = document.querySelector('#idea-title');
 var ideaBodyText = document.querySelector('#idea-body-text');
 var cardGrid = document.querySelector('#card-grid');
+var favIcon = document.querySelector('#star-icon');
 
 
 //EVENT LISTENERS
@@ -34,10 +35,17 @@ function clearFields(){
 function displayGrid() {
   var allIdeas = "";
   for (var i = 0; i < ideas.length; i++) {
+    var favStatus = '';
+    if(ideas[i].star){
+      favStatus = './assets/star-active.svg';
+    } else {
+      favStatus = './assets/star.svg';
+    }
+    
     var ideaCardHTML = `
     <article class="idea-card" id="${ideas[i].id}">
       <header class="card-header">
-        <img src="./assets/star.svg" alt="Not favorited" id="star-icon">
+        <img src="${favStatus}" alt="Not favorited" id="star-icon">
         <img src="./assets/delete.svg" alt="Delete" id="delete-icon">
       </header>
       <div>
@@ -51,6 +59,7 @@ function displayGrid() {
     allIdeas += ideaCardHTML;
   }
   cardGrid.innerHTML = allIdeas;
+  displayFavs();
 };
 
 function readySaveButton() {
@@ -67,6 +76,16 @@ function getIdeaID(event){
     deleteIdea();
   } else if(event.target.id === "star-icon"){
     favIdea();
+  }
+}
+
+function displayFavs(){
+  for (var i = 0; i < ideas.length; i++){
+    if(ideas[i].star){
+      // var image = ideas[i].querySelector('img');
+      // image.src = './assets/star-active.svg';
+      // ideas[i]favIcon.src = './assets/star-active.svg';
+    }
   }
 }
 
