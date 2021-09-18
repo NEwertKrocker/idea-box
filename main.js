@@ -50,6 +50,7 @@ function displayGrid() {
     </article>`;
     allIdeas += ideaCardHTML;
   }
+  
   cardGrid.innerHTML = allIdeas;
 };
 
