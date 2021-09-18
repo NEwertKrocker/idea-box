@@ -21,6 +21,7 @@ cardGrid.addEventListener('click', getIdeaID);
 function saveNewIdea() {
   var idea = new Idea (ideaTitle.value, ideaBodyText.value);
   ideas.push(idea);
+  idea.saveToStorage();
   displayGrid();
   clearFields();
 };
