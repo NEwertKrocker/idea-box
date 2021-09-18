@@ -105,12 +105,13 @@ function deleteIdea(){
   displayGrid();
 }
 
-window.addEventListener('load', loadedTracker);
-
-function loadedTracker(){
-  alert("The page has loaded.")
-}
-
+// window.addEventListener('load', loadedTracker);
+//
+// function loadedTracker(){
+//   alert("The page has loaded.")
+// }
+window.addEventListener('load', loadSavedIdeas);
+window.addEventListener('load', displayGrid);
 
 function loadSavedIdeas() {
   var loadedIdea = '';
