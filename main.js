@@ -49,8 +49,9 @@ function displayGrid() {
       </footer>
     </article>`;
     allIdeas += ideaCardHTML;
-    cardGrid.innerHTML = allIdeas;
   }
+  
+  cardGrid.innerHTML = allIdeas;
 };
 
 function readySaveButton() {
@@ -72,6 +73,7 @@ function deleteIdea(){
   console.log(event.target.parentElement.parentElement.id)
   for (var i = 0; i < ideas.length; i++){
     if(ideas[i].id == event.target.parentElement.parentElement.id){
+      console.log("in deleteIdea if");
       ideas.splice(i, 1);
     }
   }
