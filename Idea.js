@@ -16,10 +16,9 @@ class Idea {
 
   updateIdea(){
     if (!this.star) {
-      this.star;
+      this.star = true;
     } else {
       this.star = false;
     }
-
   }
 }
