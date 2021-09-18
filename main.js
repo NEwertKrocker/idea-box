@@ -110,3 +110,16 @@ window.addEventListener('load', loadedTracker);
 function loadedTracker(){
   alert("The page has loaded.")
 }
+
+
+function loadSavedIdeas() {
+  var loadedIdea = '';
+  var retrievedIdea = '';
+  //populate array with everything in localStorage
+  for (var i = 0; i < localStorage.length; i++) {
+    loadedIdea = localStorage.key(i);
+    retrievedIdea = JSON.parse(localStorage.getItem(loadedIdea));
+    ideas.push(retrievedIdea);
+  }
+  console.log(ideas)
+}
