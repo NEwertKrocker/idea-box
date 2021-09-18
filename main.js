@@ -59,7 +59,6 @@ function displayGrid() {
     allIdeas += ideaCardHTML;
   }
   cardGrid.innerHTML = allIdeas;
-  displayFavs();
 };
 
 function readySaveButton() {
@@ -79,26 +78,15 @@ function getIdeaID(event){
   }
 }
 
-function displayFavs(){
-  for (var i = 0; i < ideas.length; i++){
-    if(ideas[i].star){
-      // var image = ideas[i].querySelector('img');
-      // image.src = './assets/star-active.svg';
-      // ideas[i]favIcon.src = './assets/star-active.svg';
-    }
-  }
-}
 
 function favIdea(){
   var targetCard = event.target.parentElement.parentElement;
   for (var i = 0; i < ideas.length; i++){
-    if(ideas[i].id == targetCard.id && !ideas[i].star){
-      ideas[i].star = true;
-    } else if(ideas[i].id == targetCard.id && ideas[i].star){
-      ideas[i].star = false;
-    }
+    if(ideas[i].id == targetCard.id){
+      ideas[i].updateIdea();
   }
   displayGrid();
+}
 }
 
     //querySelectorVariableForStarIMG.src = ./assets/star-active.svg;
