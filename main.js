@@ -7,6 +7,7 @@ var saveButton = document.querySelector('#save-button');
 var ideaTitle = document.querySelector('#idea-title');
 var ideaBodyText = document.querySelector('#idea-body-text');
 var cardGrid = document.querySelector('#card-grid');
+var favIcon = document.querySelector('#star-icon');
 
 
 //EVENT LISTENERS
@@ -34,10 +35,17 @@ function clearFields(){
 function displayGrid() {
   var allIdeas = "";
   for (var i = 0; i < ideas.length; i++) {
+    var favStatus = '';
+    if(ideas[i].star){
+      favStatus = './assets/star-active.svg';
+    } else {
+      favStatus = './assets/star.svg';
+    }
+    
     var ideaCardHTML = `
     <article class="idea-card" id="${ideas[i].id}">
       <header class="card-header">
-        <img src="./assets/star.svg" alt="Not favorited" id="star-icon">
+        <img src="${favStatus}" alt="Not favorited" id="star-icon">
         <img src="./assets/delete.svg" alt="Delete" id="delete-icon">
       </header>
       <div>
@@ -50,8 +58,8 @@ function displayGrid() {
     </article>`;
     allIdeas += ideaCardHTML;
   }
-  
   cardGrid.innerHTML = allIdeas;
+  displayFavs();
 };
 
 function readySaveButton() {
@@ -65,9 +73,37 @@ function readySaveButton() {
 
 function getIdeaID(event){
   if(event.target.id === "delete-icon"){
-    deleteIdea()
+    deleteIdea();
+  } else if(event.target.id === "star-icon"){
+    favIdea();
   }
 }
+
+function displayFavs(){
+  for (var i = 0; i < ideas.length; i++){
+    if(ideas[i].star){
+      // var image = ideas[i].querySelector('img');
+      // image.src = './assets/star-active.svg';
+      // ideas[i]favIcon.src = './assets/star-active.svg';
+    }
+  }
+}
+
+function favIdea(){
+  var targetCard = event.target.parentElement.parentElement;
+  for (var i = 0; i < ideas.length; i++){
+    if(ideas[i].id == targetCard.id && !ideas[i].star){
+      ideas[i].star = true;
+    } else if(ideas[i].id == targetCard.id && ideas[i].star){
+      ideas[i].star = false;
+    }
+  }
+  displayGrid();
+}
+
+    //querySelectorVariableForStarIMG.src = ./assets/star-active.svg;
+    //querySelectorVariableForStarIMG.src = ./assets/star.svg;
+
 
 function deleteIdea(){
   console.log(event.target.parentElement.parentElement.id)
