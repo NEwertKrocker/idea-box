@@ -79,15 +79,17 @@ function getIdeaID(event){
   }
 }
 
+//order of favorite array starred cards matter
 
 function favIdea(){
   var targetCard = event.target.parentElement.parentElement;
   for (var i = 0; i < ideas.length; i++){
     if(ideas[i].id == targetCard.id){
       ideas[i].updateIdea();
+      ideas[i].saveToStorage();
+    }
   }
   displayGrid();
-}
 }
 
     //querySelectorVariableForStarIMG.src = ./assets/star-active.svg;
@@ -95,10 +97,9 @@ function favIdea(){
 
 
 function deleteIdea(){
-  console.log(event.target.parentElement.parentElement.id)
   for (var i = 0; i < ideas.length; i++){
     if(ideas[i].id == event.target.parentElement.parentElement.id){
-      console.log("in deleteIdea if");
+      ideas[i].deleteFromStorage();
       ideas.splice(i, 1);
     }
   }
@@ -116,10 +117,12 @@ window.addEventListener('load', displayGrid);
 function loadSavedIdeas() {
   var loadedIdea = '';
   var retrievedIdea = '';
+  var reconstr
   //populate array with everything in localStorage
   for (var i = 0; i < localStorage.length; i++) {
     loadedIdea = localStorage.key(i);
     retrievedIdea = JSON.parse(localStorage.getItem(loadedIdea));
+
     ideas.push(retrievedIdea);
   }
   console.log(ideas)

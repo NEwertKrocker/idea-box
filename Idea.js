@@ -11,7 +11,7 @@ class Idea {
   }
 
   deleteFromStorage(){
-
+    window.localStorage.removeItem(this.id)
   }
 
   updateIdea(){
