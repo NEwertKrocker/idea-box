@@ -50,7 +50,6 @@ function displayGrid() {
     </article>`;
     allIdeas += ideaCardHTML;
   }
-  
   cardGrid.innerHTML = allIdeas;
 };
 
@@ -65,9 +64,27 @@ function readySaveButton() {
 
 function getIdeaID(event){
   if(event.target.id === "delete-icon"){
-    deleteIdea()
+    deleteIdea();
+  } else if(event.target.id === "star-icon"){
+    favIdea();
   }
 }
+
+function favIdea(){
+  var targetCard = event.target.parentElement.parentElement;
+  for (var i = 0; i < ideas.length; i++){
+    if(ideas[i].id == targetCard.id && !ideas[i].star){
+      ideas[i].star = true;
+    } else if(ideas[i].id == targetCard.id && ideas[i].star){
+      ideas[i].star = false;
+    }
+  }
+  displayGrid();
+}
+
+    //querySelectorVariableForStarIMG.src = ./assets/star-active.svg;
+    //querySelectorVariableForStarIMG.src = ./assets/star.svg;
+
 
 function deleteIdea(){
   console.log(event.target.parentElement.parentElement.id)
