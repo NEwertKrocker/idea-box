@@ -12,7 +12,14 @@ class Idea {
   deleteFromStorage(){
 
   }
+
+
   updateIdea(){
+    if (!this.star) {
+      this.star;
+    } else {
+      this.star = false;
+    }
 
   }
 }
