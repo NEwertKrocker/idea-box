@@ -117,13 +117,13 @@ window.addEventListener('load', displayGrid);
 function loadSavedIdeas() {
   var loadedIdea = '';
   var retrievedIdea = '';
-  var reconstr
-  //populate array with everything in localStorage
   for (var i = 0; i < localStorage.length; i++) {
     loadedIdea = localStorage.key(i);
     retrievedIdea = JSON.parse(localStorage.getItem(loadedIdea));
-
-    ideas.push(retrievedIdea);
+    var idea = new Idea (retrievedIdea.title, retrievedIdea.body);
+    idea.id = retrievedIdea.id;
+    idea.star = retrievedIdea.star;
+    ideas.push(idea);
   }
   console.log(ideas)
 }
