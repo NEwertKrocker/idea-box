@@ -10,7 +10,8 @@ var cardGrid = document.querySelector('#card-grid');
 var favIcon = document.querySelector('#star-icon');
 var filterButton = document.querySelector('#filter-button');
 var searchBar = document.querySelector('#searchField');
-
+var addCommentIcon = document.querySelector('#add-comment');
+var commentBar = document.querySelector('#commentBar');
 
 //EVENT LISTENERS
 saveButton.addEventListener('click', saveNewIdea);
@@ -19,7 +20,6 @@ ideaTitle.addEventListener('keyup', readySaveButton);
 cardGrid.addEventListener('click', getIdeaID);
 filterButton.addEventListener('click', toggleFilter);
 searchBar.addEventListener('keyup', searchIdeas);
-
 
 //EVENT HANDLERS & FUNCTIONS
 function saveNewIdea() {
@@ -59,9 +59,17 @@ function displayGrid() {
         <p>${ideas[i].title}</p>
         <p>${ideas[i].body}</p>
       </div>
-      <footer class="card-footer">
-        <img src="./assets/comment.svg" alt="Comment">Comment
-      </footer>
+      <div>
+        <footer id="add-comment" class="card-footer">
+          <img src="./assets/comment.svg" alt="Comment">Comment
+        </footer>
+        <div id="commentBar" class="hidden">
+          <input type="text" class="input comment" id="commentInput">
+          <footer class="comment-footer">
+            <button class= "small-comment type="button"> Save </button>
+          </footer>
+        </div>
+      </div>
     </article>`;
     allIdeas += ideaCardHTML;
   }
@@ -81,7 +89,11 @@ function getIdeaID(event){
   if(event.target.id === "delete-icon"){
     deleteIdea();
   } else if(event.target.id === "star-icon"){
+    console.log('im in the favIdea if statement');
     favIdea();
+  } else if(event.target.id === "add-comment"){
+    console.log("I'm in the commentInput if statement");
+    showCommentForm();
   }
 }
 
@@ -158,4 +170,14 @@ function searchIdeas(){
       ideaCards[i].classList.remove("search-hidden");
     }
   }
+}
+
+function showCommentForm(){
+  var targetCard = event.target.parentElement.parentElement;
+  for (var i = 0; i < ideas.length; i++){
+    if(ideas[i].id == targetCard.id){
+      commentBar.classList.remove('hidden');
+    }
+  }
+  displayGrid();
 }

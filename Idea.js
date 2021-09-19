@@ -4,14 +4,15 @@ class Idea {
     this.title = title;
     this.body = body;
     this.star = false;
+    this.comments = [];
   }
   saveToStorage(){
     var stringifiedIdea = JSON.stringify(this);
-    window.localStorage.setItem(this.id, stringifiedIdea)
+    window.localStorage.setItem(this.id, stringifiedIdea);
   }
 
   deleteFromStorage(){
-    window.localStorage.removeItem(this.id)
+    window.localStorage.removeItem(this.id);
   }
 
   updateIdea(){

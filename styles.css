@@ -27,6 +27,16 @@ button {
   margin-bottom: 25px;
 }
 
+
+
+.small-comment {
+  height: 40px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 10px;
+  padding: 5px;
+}
+
 .button-ready {
   background-color: #1F1F3D;
   border: 2px solid #5356A4;
@@ -61,7 +71,11 @@ input {
 .large{
   height: 150px;
 }
-
+.comment{
+  border: none;
+  padding: 0;
+  width: 100%;
+}
 main {
   width: 75%;
 }
@@ -212,6 +226,10 @@ footer {
   border-top: 2px solid #353567;
   display: flex;
   align-items: center;
+}
+
+.comment-footer {
+  justify-content: flex-end;
 }
 
 footer p {
