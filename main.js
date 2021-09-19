@@ -8,6 +8,8 @@ var ideaTitle = document.querySelector('#idea-title');
 var ideaBodyText = document.querySelector('#idea-body-text');
 var cardGrid = document.querySelector('#card-grid');
 var favIcon = document.querySelector('#star-icon');
+var filterButton = document.querySelector('#filter-button');
+var searchBar = document.querySelector('#searchField');
 
 
 //EVENT LISTENERS
@@ -15,6 +17,8 @@ saveButton.addEventListener('click', saveNewIdea);
 ideaBodyText.addEventListener('keyup', readySaveButton);
 ideaTitle.addEventListener('keyup', readySaveButton);
 cardGrid.addEventListener('click', getIdeaID);
+filterButton.addEventListener('click', toggleFilter);
+searchBar.addEventListener('keyup', searchIdeas);
 
 
 //EVENT HANDLERS & FUNCTIONS
@@ -36,17 +40,19 @@ function clearFields(){
 function displayGrid() {
   var allIdeas = "";
   for (var i = 0; i < ideas.length; i++) {
+    var favImg = '';
     var favStatus = '';
     if(ideas[i].star){
-      favStatus = './assets/star-active.svg';
+      favImg = './assets/star-active.svg';
+      favStatus = 'faved';
     } else {
-      favStatus = './assets/star.svg';
+      favImg = './assets/star.svg';
+      favStatus = 'not-faved';
     }
-
     var ideaCardHTML = `
-    <article class="idea-card" id="${ideas[i].id}">
+    <article class="idea-card ${favStatus}" id="${ideas[i].id}">
       <header class="card-header">
-        <img src="${favStatus}" alt="Not favorited" id="star-icon">
+        <img src="${favImg}" alt="Favorite" id="star-icon">
         <img src="./assets/delete.svg" alt="Delete" id="delete-icon">
       </header>
       <div>
@@ -126,4 +132,30 @@ function loadSavedIdeas() {
     ideas.push(idea);
   }
   console.log(ideas)
+}
+
+function toggleFilter(){
+  var ideaCards = document.querySelectorAll(".idea-card");
+  for (var i = 0; i < ideaCards.length; i++){
+    if (ideaCards[i].classList.contains("not-faved")){
+      ideaCards[i].classList.toggle("hidden");
+    }
+  }
+  if (filterButton.innerText === "Show Starred Ideas"){
+    filterButton.innerText = "Show All Ideas"
+  } else {
+    filterButton.innerText = "Show Starred Ideas";
+  }
+}
+
+function searchIdeas(){
+  var search = searchBar.value;
+  var ideaCards = document.querySelectorAll(".idea-card");
+  for (var i = 0; i < ideaCards.length; i++){
+    if (!ideaCards[i].innerText.includes(searchBar.value)){
+      ideaCards[i].classList.add("search-hidden");
+    } else if (searchBar.value === ""){
+      ideaCards[i].classList.remove("search-hidden");
+    }
+  }
 }

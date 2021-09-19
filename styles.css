@@ -230,3 +230,8 @@ footer p {
   grid-gap: 20px;
   padding: 20px;
 }
+
+.hidden,
+.search-hidden {
+  display: none;
+}
