@@ -1,11 +1,11 @@
 class Comment {
-  constructor(){
-
+  constructor(commentText){
+    this.text = commentText;
   }
   saveToStorage(){
 
   }
   deleteFromStorage(){
-    
+
   }
 }
