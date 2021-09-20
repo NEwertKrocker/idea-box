@@ -109,7 +109,6 @@ function getIdeaID(event){
     showCommentForm();
   } else if(event.target.classList.contains('small-comment')){
     addNewComment();
-    console.log(event.target.parentElement.previousSibling.value);
   }
 }
 
@@ -146,7 +145,6 @@ function deleteIdea(){
 //   alert("The page has loaded.")
 // }
 window.addEventListener('load', loadSavedIdeas);
-window.addEventListener('load', displayGrid);
 
 function loadSavedIdeas() {
   var loadedIdea = '';
@@ -157,8 +155,10 @@ function loadSavedIdeas() {
     var idea = new Idea (retrievedIdea.title, retrievedIdea.body);
     idea.id = retrievedIdea.id;
     idea.star = retrievedIdea.star;
+    idea.comments = retrievedIdea.comments;
     ideas.push(idea);
   }
+  displayGrid();
   console.log(ideas)
 }
 
@@ -203,7 +203,8 @@ function addNewComment(){
   var newCommentText = event.target.parentElement.previousSibling.previousSibling.value;
   for (var i = 0; i < ideas.length; i++){
     if(ideas[i].id == targetCard.id){
-      ideas[i].comments.push(newCommentText);
+      var comment = new Comment(newCommentText);
+      ideas[i].comments.push(comment);
       ideas[i].saveToStorage();
     }
   }
