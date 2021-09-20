@@ -10,6 +10,8 @@ var cardGrid = document.querySelector('#card-grid');
 var favIcon = document.querySelector('#star-icon');
 var filterButton = document.querySelector('#filter-button');
 var searchBar = document.querySelector('#searchField');
+var addCommentIcon = document.querySelector('#add-comment');
+var ideaContainer= document.querySelector('#ideaContainer');
 
 
 //EVENT LISTENERS
@@ -19,7 +21,7 @@ ideaTitle.addEventListener('keyup', readySaveButton);
 cardGrid.addEventListener('click', getIdeaID);
 filterButton.addEventListener('click', toggleFilter);
 searchBar.addEventListener('keyup', searchIdeas);
-
+//ideaContainer.addEventListener('keyup', readySaveCommentButton);
 
 //EVENT HANDLERS & FUNCTIONS
 function saveNewIdea() {
@@ -59,9 +61,17 @@ function displayGrid() {
         <p>${ideas[i].title}</p>
         <p>${ideas[i].body}</p>
       </div>
-      <footer class="card-footer">
-        <img src="./assets/comment.svg" alt="Comment">Comment
-      </footer>
+      <div>
+        <footer class="card-footer">
+          <img id="add-comment" src="./assets/comment.svg" alt="Comment">Comment
+        </footer>
+        <div id="${i}" class="hidden">
+          <input type="text" class="input comment" id="commentInput">
+          <footer class="comment-footer">
+            <button class= "small-comment" type="button"> Add Comment </button>
+          </footer>
+        </div>
+      </div>
     </article>`;
     allIdeas += ideaCardHTML;
   }
@@ -69,19 +79,36 @@ function displayGrid() {
 };
 
 function readySaveButton() {
-  // console.log("I'm in the readySaveButton func");
   if(ideaTitle.value && ideaBodyText.value){
-    // console.log("I'm in the readySaveButton if statement");
     saveButton.classList.add('button-ready');
     saveButton.disabled = false;
+  } else{
+    saveButton.disabled = true;
+    saveButton.classList.remove('button-ready');
   }
 }
+
+function readySaveCommentButton() {
+  // if(commentInput.value){
+  //   saveCommentButton.classList.add('button-ready');
+  //   saveCommentButton.disabled = false;
+  // } else{
+  //   saveCommentButton.disabled = true;
+  //   saveCommentButton.classList.remove('button-ready');
+  // }
+}
+
 
 function getIdeaID(event){
   if(event.target.id === "delete-icon"){
     deleteIdea();
   } else if(event.target.id === "star-icon"){
+    console.log('im in the favIdea if statement');
     favIdea();
+  } else if(event.target.id === "add-comment"){
+    showCommentForm();
+  } else if(event.target.classList.contains('small-comment')){
+    console.log(event.target.parentElement.previousSibling.value);
   }
 }
 
@@ -156,6 +183,16 @@ function searchIdeas(){
       ideaCards[i].classList.add("search-hidden");
     } else if (searchBar.value === ""){
       ideaCards[i].classList.remove("search-hidden");
+    }
+  }
+}
+
+function showCommentForm(){
+  var targetCard = event.target.parentElement.parentElement.parentElement;
+  for (var i = 0; i < ideas.length; i++){
+    if(ideas[i].id == targetCard.id){
+      var commentBar = document.getElementById(`${i}`);
+      commentBar.classList.remove('hidden');
     }
   }
 }
