@@ -19,6 +19,7 @@ saveButton.addEventListener('click', saveNewIdea);
 ideaBodyText.addEventListener('keyup', readySaveButton);
 ideaTitle.addEventListener('keyup', readySaveButton);
 cardGrid.addEventListener('click', getIdeaID);
+cardGrid.addEventListener('keyup', readySaveCommentButton);
 filterButton.addEventListener('click', toggleFilter);
 searchBar.addEventListener('keyup', searchIdeas);
 //ideaContainer.addEventListener('keyup', readySaveCommentButton);
@@ -88,14 +89,17 @@ function readySaveButton() {
   }
 }
 
+
 function readySaveCommentButton() {
-  // if(commentInput.value){
-  //   saveCommentButton.classList.add('button-ready');
-  //   saveCommentButton.disabled = false;
-  // } else{
-  //   saveCommentButton.disabled = true;
-  //   saveCommentButton.classList.remove('button-ready');
-  // }
+  var commentInputContent = event.target.value;
+  var saveCommentButton = event.target.nextSibling.nextSibling.firstChild.nextSibling;
+  if(commentInputContent){
+    saveCommentButton.classList.add('button-ready');
+    saveCommentButton.disabled = false;
+  } else{
+    saveCommentButton.disabled = true;
+    saveCommentButton.classList.remove('button-ready');
+  }
 }
 
 
@@ -108,9 +112,15 @@ function getIdeaID(event){
   } else if(event.target.id === "addComment"){
     showCommentForm();
   } else if(event.target.classList.contains('small-comment')){
+    readySaveButton();
+      //ready add comment button
+      //FUNCTION
+        //create a new comment object, add it to the idea card in idea.comments
+        //attach the comment to the card somehow
+    };
     addNewComment();
   }
-}
+
 
 //order of favorite array starred cards matter
 
