@@ -3,14 +3,14 @@ var ideas = [];
 
 
 //QUERY SELECTORS
-var saveButton = document.querySelector('#save-button');
-var ideaTitle = document.querySelector('#idea-title');
-var ideaBodyText = document.querySelector('#idea-body-text');
-var cardGrid = document.querySelector('#card-grid');
-var favIcon = document.querySelector('#star-icon');
-var filterButton = document.querySelector('#filter-button');
+var saveButton = document.querySelector('#saveButton');
+var ideaTitle = document.querySelector('#ideaTitle');
+var ideaBodyText = document.querySelector('#ideaBodyText');
+var cardGrid = document.querySelector('#cardGrid');
+var favIcon = document.querySelector('#starIcon');
+var filterButton = document.querySelector('#filterButton');
 var searchBar = document.querySelector('#searchField');
-var addCommentIcon = document.querySelector('#add-comment');
+var addCommentIcon = document.querySelector('#addComment');
 var ideaContainer= document.querySelector('#ideaContainer');
 
 
@@ -54,8 +54,8 @@ function displayGrid() {
     var ideaCardHTML = `
     <article class="idea-card ${favStatus}" id="${ideas[i].id}">
       <header class="card-header">
-        <img src="${favImg}" alt="Favorite" id="star-icon">
-        <img src="./assets/delete.svg" alt="Delete" id="delete-icon">
+        <img src="${favImg}" alt="Favorite" id="starIcon">
+        <img src="./assets/delete.svg" alt="Delete" id="deleteIcon">
       </header>
       <div>
         <p>${ideas[i].title}</p>
@@ -63,7 +63,7 @@ function displayGrid() {
       </div>
       <div>
         <footer class="card-footer">
-          <img id="add-comment" src="./assets/comment.svg" alt="Comment">Comment
+          <img id="addComment" src="./assets/comment.svg" alt="Comment">Comment
         </footer>
         <div id="${i}" class="hidden">
           <input type="text" class="input comment" id="commentInput">
@@ -100,15 +100,15 @@ function readySaveCommentButton() {
 
 
 function getIdeaID(event){
-  if(event.target.id === "delete-icon"){
+  if(event.target.id === "deleteIcon"){
     deleteIdea();
-  } else if(event.target.id === "star-icon"){
+  } else if(event.target.id === "starIcon"){
     console.log('im in the favIdea if statement');
     favIdea();
-  } else if(event.target.id === "add-comment"){
+  } else if(event.target.id === "addComment"){
     showCommentForm();
   } else if(event.target.classList.contains('small-comment')){
-    console.log(event.target.parentElement.previousSibling.value);
+    addNewComment();
   }
 }
 
@@ -145,7 +145,6 @@ function deleteIdea(){
 //   alert("The page has loaded.")
 // }
 window.addEventListener('load', loadSavedIdeas);
-window.addEventListener('load', displayGrid);
 
 function loadSavedIdeas() {
   var loadedIdea = '';
@@ -156,8 +155,10 @@ function loadSavedIdeas() {
     var idea = new Idea (retrievedIdea.title, retrievedIdea.body);
     idea.id = retrievedIdea.id;
     idea.star = retrievedIdea.star;
+    idea.comments = retrievedIdea.comments;
     ideas.push(idea);
   }
+  displayGrid();
   console.log(ideas)
 }
 
@@ -193,6 +194,18 @@ function showCommentForm(){
     if(ideas[i].id == targetCard.id){
       var commentBar = document.getElementById(`${i}`);
       commentBar.classList.remove('hidden');
+    }
+  }
+}
+
+function addNewComment(){
+  var targetCard = event.target.parentElement.parentElement.parentElement.parentElement;
+  var newCommentText = event.target.parentElement.previousSibling.previousSibling.value;
+  for (var i = 0; i < ideas.length; i++){
+    if(ideas[i].id == targetCard.id){
+      var comment = new Comment(newCommentText);
+      ideas[i].comments.push(comment);
+      ideas[i].saveToStorage();
     }
   }
 }
