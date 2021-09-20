@@ -68,7 +68,7 @@ function displayGrid() {
         <div id="${i}" class="hidden">
           <input type="text" class="input comment" id="commentInput">
           <footer class="comment-footer">
-            <button class= "small-comment type="button"> Save </button>
+            <button class= "small-comment" type="button"> Add Comment </button>
           </footer>
         </div>
       </div>
@@ -106,8 +106,9 @@ function getIdeaID(event){
     console.log('im in the favIdea if statement');
     favIdea();
   } else if(event.target.id === "add-comment"){
-    console.log("I'm in the commentInput if statement");
     showCommentForm();
+  } else if(event.target.classList.contains('small-comment')){
+    console.log(event.target.parentElement.previousSibling.value);
   }
 }
 
