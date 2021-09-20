@@ -11,7 +11,8 @@ var favIcon = document.querySelector('#star-icon');
 var filterButton = document.querySelector('#filter-button');
 var searchBar = document.querySelector('#searchField');
 var addCommentIcon = document.querySelector('#add-comment');
-var commentBar = document.querySelector('#commentBar');
+var ideaContainer= document.querySelector('#ideaContainer');
+
 
 //EVENT LISTENERS
 saveButton.addEventListener('click', saveNewIdea);
@@ -20,6 +21,7 @@ ideaTitle.addEventListener('keyup', readySaveButton);
 cardGrid.addEventListener('click', getIdeaID);
 filterButton.addEventListener('click', toggleFilter);
 searchBar.addEventListener('keyup', searchIdeas);
+//ideaContainer.addEventListener('keyup', readySaveCommentButton);
 
 //EVENT HANDLERS & FUNCTIONS
 function saveNewIdea() {
@@ -60,10 +62,10 @@ function displayGrid() {
         <p>${ideas[i].body}</p>
       </div>
       <div>
-        <footer id="add-comment" class="card-footer">
-          <img src="./assets/comment.svg" alt="Comment">Comment
+        <footer class="card-footer">
+          <img id="add-comment" src="./assets/comment.svg" alt="Comment">Comment
         </footer>
-        <div id="commentBar" class="hidden">
+        <div id="${i}" class="hidden">
           <input type="text" class="input comment" id="commentInput">
           <footer class="comment-footer">
             <button class= "small-comment type="button"> Save </button>
@@ -77,13 +79,25 @@ function displayGrid() {
 };
 
 function readySaveButton() {
-  // console.log("I'm in the readySaveButton func");
   if(ideaTitle.value && ideaBodyText.value){
-    // console.log("I'm in the readySaveButton if statement");
     saveButton.classList.add('button-ready');
     saveButton.disabled = false;
+  } else{
+    saveButton.disabled = true;
+    saveButton.classList.remove('button-ready');
   }
 }
+
+function readySaveCommentButton() {
+  // if(commentInput.value){
+  //   saveCommentButton.classList.add('button-ready');
+  //   saveCommentButton.disabled = false;
+  // } else{
+  //   saveCommentButton.disabled = true;
+  //   saveCommentButton.classList.remove('button-ready');
+  // }
+}
+
 
 function getIdeaID(event){
   if(event.target.id === "delete-icon"){
@@ -173,11 +187,11 @@ function searchIdeas(){
 }
 
 function showCommentForm(){
-  var targetCard = event.target.parentElement.parentElement;
+  var targetCard = event.target.parentElement.parentElement.parentElement;
   for (var i = 0; i < ideas.length; i++){
     if(ideas[i].id == targetCard.id){
+      var commentBar = document.getElementById(`${i}`);
       commentBar.classList.remove('hidden');
     }
   }
-  displayGrid();
 }
