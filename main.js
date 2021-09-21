@@ -58,9 +58,9 @@ function displayGrid() {
         <img src="${favImg}" alt="Favorite" id="starIcon">
         <img src="./assets/delete.svg" alt="Delete" id="deleteIcon">
       </header>
-      <div>
-        <p>${ideas[i].title}</p>
-        <p>${ideas[i].body}</p>
+      <div class="idea-text">
+        <h1>${ideas[i].title}</h1>
+        <h3>${ideas[i].body}</h3>
       </div>
       <div>
         <footer class="card-footer">
@@ -122,8 +122,6 @@ function getIdeaID(event){
   }
 
 
-//order of favorite array starred cards matter
-
 function favIdea(){
   var targetCard = event.target.parentElement.parentElement;
   for (var i = 0; i < ideas.length; i++){
@@ -135,10 +133,6 @@ function favIdea(){
   displayGrid();
 }
 
-    //querySelectorVariableForStarIMG.src = ./assets/star-active.svg;
-    //querySelectorVariableForStarIMG.src = ./assets/star.svg;
-
-
 function deleteIdea(){
   for (var i = 0; i < ideas.length; i++){
     if(ideas[i].id == event.target.parentElement.parentElement.id){
@@ -149,11 +143,6 @@ function deleteIdea(){
   displayGrid();
 }
 
-// window.addEventListener('load', loadedTracker);
-//
-// function loadedTracker(){
-//   alert("The page has loaded.")
-// }
 window.addEventListener('load', loadSavedIdeas);
 
 function loadSavedIdeas() {

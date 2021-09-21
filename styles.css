@@ -3,9 +3,7 @@ aside {
   width: 25%;
   font-weight: bold;
   background-color: #1F1F3D;
-
-  /* display: flex;
-  flex-direction: column; */
+  height: auto;
 }
 
 body {
@@ -26,8 +24,6 @@ button {
   margin-top: 25px;
   margin-bottom: 25px;
 }
-
-
 
 .small-comment {
   height: 40px;
@@ -52,12 +48,8 @@ button {
 
 main {
   width: 75%;
+  height: auto;
 }
-
-/* p {
-  margin-bottom: 5px;
-  margin-top: 20px;
-} */
 
 input {
   font-size: 30px;
@@ -71,13 +63,11 @@ input {
 .large{
   height: 150px;
 }
+
 .comment{
   border: none;
   padding: 0;
   width: 100%;
-}
-main {
-  width: 75%;
 }
 
 h1, h3 {
@@ -91,7 +81,7 @@ hr{
   background-color: #353567;
 }
 
-textarea{
+/* textarea{
   width: 100%;
   font-family: inherit;
   font-size: 20px;
@@ -102,7 +92,7 @@ textarea{
   border-radius: 4px;
   background-color: #f8f8f8;
   resize:none;
-}
+} */
 
 .button-ready {
   background-color: #353567;
@@ -147,11 +137,6 @@ textarea{
   color: white;
 }
 
-/* p {
-  margin-bottom: 5px;
-  margin-top: 20px;
-} */
-
 .large{
   height: 90px;
 }
@@ -165,7 +150,7 @@ textarea{
 
 .idea-input-form {
   background-color: #A9AAD2;
-  height: 60vh;
+  height: 45vh;
   margin: 3% 25%;
   font-weight: bold;
   display: flex;
@@ -186,8 +171,12 @@ textarea{
   justify-content: space-between;
 }
 
-.idea-card p {
-  padding: 0px 10px;
+.idea-card h1, h3 {
+  padding: 5px 10px;
+}
+
+.idea-card h3 {
+  font-weight: normal;
 }
 
 .idea-card img {
@@ -195,13 +184,9 @@ textarea{
   margin: 5px;
 }
 
-.idea-text{
+.idea-text {
   background-color: white;
   height: 100%;
-}
-
-.idea-text h3 {
-  font-weight: normal;
 }
 
 .card-grid-section {
@@ -210,6 +195,8 @@ textarea{
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   padding: 30px;
+  min-height: 45vh;
+  height: auto;
 }
 
 header {
