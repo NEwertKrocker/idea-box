@@ -1,7 +1,6 @@
 //ARRAY
 var ideas = [];
 
-
 //QUERY SELECTORS
 var saveButton = document.querySelector('#saveButton');
 var ideaTitle = document.querySelector('#ideaTitle');
@@ -13,7 +12,6 @@ var searchBar = document.querySelector('#searchField');
 var addCommentIcon = document.querySelector('#addComment');
 var ideaContainer= document.querySelector('#ideaContainer');
 
-
 //EVENT LISTENERS
 saveButton.addEventListener('click', saveNewIdea);
 ideaBodyText.addEventListener('keyup', readySaveButton);
@@ -22,7 +20,7 @@ cardGrid.addEventListener('click', getIdeaID);
 cardGrid.addEventListener('keyup', readySaveCommentButton);
 filterButton.addEventListener('click', toggleFilter);
 searchBar.addEventListener('keyup', searchIdeas);
-//ideaContainer.addEventListener('keyup', readySaveCommentButton);
+window.addEventListener('load', loadSavedIdeas);
 
 //EVENT HANDLERS & FUNCTIONS
 function saveNewIdea() {
@@ -31,7 +29,7 @@ function saveNewIdea() {
   idea.saveToStorage();
   displayGrid();
   clearFields();
-};
+}
 
 function clearFields(){
   ideaTitle.value = "";
@@ -107,18 +105,13 @@ function getIdeaID(event){
   if(event.target.id === "deleteIcon"){
     deleteIdea();
   } else if(event.target.id === "starIcon"){
-    console.log('im in the favIdea if statement');
     favIdea();
   } else if(event.target.id === "addComment"){
     showCommentForm();
   } else if(event.target.classList.contains('small-comment')){
     readySaveButton();
-      //ready add comment button
-      //FUNCTION
-        //create a new comment object, add it to the idea card in idea.comments
-        //attach the comment to the card somehow
-    };
     addNewComment();
+    }
   }
 
 
@@ -143,8 +136,6 @@ function deleteIdea(){
   displayGrid();
 }
 
-window.addEventListener('load', loadSavedIdeas);
-
 function loadSavedIdeas() {
   var loadedIdea = '';
   var retrievedIdea = '';
@@ -158,7 +149,6 @@ function loadSavedIdeas() {
     ideas.push(idea);
   }
   displayGrid();
-  console.log(ideas)
 }
 
 function toggleFilter(){

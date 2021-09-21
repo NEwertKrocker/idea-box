@@ -150,7 +150,8 @@ hr{
 
 .idea-input-form {
   background-color: #A9AAD2;
-  height: 45vh;
+  min-height: 45vh;
+  height: auto;
   margin: 3% 25%;
   font-weight: bold;
   display: flex;
