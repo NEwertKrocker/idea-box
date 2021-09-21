@@ -33,10 +33,10 @@ Idea Box is an app that allows users to input their own ideas, favorite ideas, d
 
 ## Demonstration 
 
-Check out a demonstration [here] (https://giphy.com/gifs/2QJxgZDVuybgCLsi1Y)
+Check out a demonstration [here](https://giphy.com/gifs/2QJxgZDVuybgCLsi1Y)
 
 ## Visit our Idea Box application:
-  - Click here to access it [here] (https://newertkrocker.github.io/idea-box)
+  - Click here to access it [here](https://newertkrocker.github.io/idea-box)
 
 
 ## Contributors
