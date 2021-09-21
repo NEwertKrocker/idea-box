@@ -22,7 +22,7 @@ Mod 1 (2108) Group Project
   - CSS
   - HTML
   - Atom
-	- node
+  - node
 
 
 ## Code Architecture
@@ -36,17 +36,17 @@ Mod 1 (2108) Group Project
 	Check out a demonstration [here] (https://media.giphy.com/media/2QJxgZDVuybgCLsi1Y/giphy.gif?cid=790b7611f3987a9c203675303b7bb70263b86dd6f25decde&rid=giphy.gif&ct=g)
 
 ## Visit our Idea Box application:
-	- Click here to access it [here] (https://newertkrocker.github.io/idea-box/)
+- Click here to access it [here] (https://newertkrocker.github.io/idea-box)
 
 
 ## Contributors
   - [Nate Ewert-Krocker](https://github.com/NEwertKrocker)
-	- [Susanna Carey](https://github.com/susannaopal)
-	- [Eric Wang](https://github.com/ewang0)
+  - [Susanna Carey](https://github.com/susannaopal)
+  - [Eric Wang](https://github.com/ewang0)
 
 ## Wins
 	- We worked well together as a team 
-	- We implemented a large amount of functionality in the time that we had
+	- We implemented a large amount of functionality in the time   that we had
 	- Getting as far as we did
 	- Using localStorage successfully 
 	- Understanding and utilizing the data model successfully
